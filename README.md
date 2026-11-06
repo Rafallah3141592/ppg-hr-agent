@@ -1,4 +1,4 @@
-# passos-wearable-ai
+# PPG Heart Rate Agent and Function of Analysis 
 
 Heart-rate (HR) estimation from the **wrist PPG** of PPG-DaLiA participant **S1**, with accelerometer-based movement analysis,
 reference-based evaluation, and an evidence-grounded AI analysis agent. Classical signal processing (NumPy/SciPy); no deep learning.

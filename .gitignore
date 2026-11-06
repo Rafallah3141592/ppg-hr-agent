@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+.env
+# PPG-DaLiA dataset must never be committed or redistributed
+data/raw/
+data/*.zip
+*.pkl
+*.h5

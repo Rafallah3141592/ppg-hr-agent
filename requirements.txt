@@ -1,0 +1,7 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+pyyaml>=6.0
+# Optional: real LLM function calling (the agent falls back to a deterministic backend without it)
+# anthropic>=0.40

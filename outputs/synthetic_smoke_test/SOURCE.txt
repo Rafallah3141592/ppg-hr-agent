@@ -1,0 +1,2 @@
+data source: SYNTHETIC (not PPG-DaLiA)
+windows: 447

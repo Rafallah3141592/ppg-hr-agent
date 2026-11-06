@@ -1,0 +1,52 @@
+# Central configuration. Every threshold used by the pipeline lives here.
+# Thresholds marked (heuristic) are NOT validated on PPG-DaLiA yet.
+data:
+  dir: data/raw/PPG_FieldStudy     # folder that contains S1/S1.pkl (override with PASSOS_DATA_DIR)
+  allowed_subjects: [S1]           # assignment scope
+  fs_ppg: 64.0                     # Empatica E4 BVP
+  fs_acc: 32.0                     # Empatica E4 ACC
+  fs_activity: 4.0                 # activity annotation rate
+  fs_ecg: 700.0                    # RespiBAN ECG (reference R-peaks)
+  label_window_s: 8.0              # PPG-DaLiA reference HR window
+  label_step_s: 2.0                # PPG-DaLiA reference HR step
+  max_nan_fraction: 0.2
+  max_interp_gap_s: 2.0
+  max_stream_duration_mismatch_s: 5.0
+preprocessing:
+  ppg_bandpass_hz: [0.5, 4.0]
+  filter_order: 4
+estimation:
+  default_method: fusion
+  window_s: 8.0
+  step_s: 2.0
+  min_window_s: 6.0
+  hr_range_bpm: [40, 200]
+  peak_prominence_std: 0.3
+  ibi_range_ms: [300, 1500]
+  ibi_max_rel_dev: 0.25
+  min_valid_ibis: 3
+  spectral_nfft: 8192
+  motion_exclusion_tol_hz: 0.12
+  motion_min_peak_share: 0.15
+  agreement_tol_bpm: 5.0
+  continuity_max_jump_bpm: 12.0
+  continuity_max_hold: 4
+quality:                           # (heuristic)
+  sqi_high: 0.6
+  sqi_medium: 0.4
+  spectral_halfwidth_hz: 0.2
+motion:                            # (heuristic) std of dynamic acceleration magnitude, in g
+  low_std_g: 0.05
+  high_std_g: 0.2
+analysis:
+  min_duration_s: 8.0
+  max_duration_s: 300.0
+evaluation:
+  within_tolerance_bpm: 5.0
+agent:
+  backend: auto                    # auto | llm | rule
+  model: claude-sonnet-5-5
+  max_tokens: 1024
+  max_tool_rounds: 4
+logging:
+  level: INFO
